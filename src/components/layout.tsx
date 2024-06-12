@@ -36,6 +36,12 @@ import {
   DropdownMenuContent,
   DropdownMenu,
 } from '@/components/ui/dropdown-menu';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './ui/accordion';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -56,12 +62,35 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <HomeIcon className='h-4 w-4' />
                 Home
               </Link>
-              <Link
+              {/* <Link
                 className='flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50'
-                href='#'>
+                href='/categories'>
                 <LayoutGridIcon className='h-4 w-4' />
-                Dashboard
-              </Link>
+                Categories
+              </Link> */}
+              <Accordion type='single' collapsible className='w-full mx-2 my-2'>
+                <AccordionItem value='item-1'>
+                  <AccordionTrigger>Categories</AccordionTrigger>
+                  <AccordionContent className='flex flex-col gap-4'>
+                    <Link href={'/categories'}>All Categories</Link>
+                    <Link href={'/categories/add'}>Add Category</Link>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='item-2'>
+                  <AccordionTrigger>Sub Categories</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It comes with default styles that matches the other
+                    components&apos; aesthetic.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value='item-3'>
+                  <AccordionTrigger>Posts</AccordionTrigger>
+                  <AccordionContent>
+                    Yes. It&apos;s animated by default, but you can disable it
+                    if you prefer.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
               <Link
                 className='flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'
                 href='#'>
@@ -177,9 +206,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-
-
-function BriefcaseIcon(props:any) {
+function BriefcaseIcon(props: any) {
   return (
     <svg
       {...props}
@@ -198,8 +225,7 @@ function BriefcaseIcon(props:any) {
   );
 }
 
-
-function HomeIcon(props:any) {
+function HomeIcon(props: any) {
   return (
     <svg
       {...props}
@@ -218,8 +244,7 @@ function HomeIcon(props:any) {
   );
 }
 
-
-function LayoutGridIcon(props:any) {
+function LayoutGridIcon(props: any) {
   return (
     <svg
       {...props}
@@ -240,7 +265,7 @@ function LayoutGridIcon(props:any) {
   );
 }
 
-function MenuIcon(props:any) {
+function MenuIcon(props: any) {
   return (
     <svg
       {...props}
@@ -260,7 +285,7 @@ function MenuIcon(props:any) {
   );
 }
 
-function MountainIcon(props:any) {
+function MountainIcon(props: any) {
   return (
     <svg
       {...props}
@@ -278,10 +303,7 @@ function MountainIcon(props:any) {
   );
 }
 
-
-
-
-function SearchIcon(props:any) {
+function SearchIcon(props: any) {
   return (
     <svg
       {...props}
@@ -300,7 +322,7 @@ function SearchIcon(props:any) {
   );
 }
 
-function SettingsIcon(props:any) {
+function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
@@ -319,8 +341,7 @@ function SettingsIcon(props:any) {
   );
 }
 
-
-function UsersIcon(props:any) {
+function UsersIcon(props: any) {
   return (
     <svg
       {...props}
