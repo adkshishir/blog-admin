@@ -17,10 +17,11 @@ class AuthRepo {
         password: e.password,
       };
       const response = await request.post(Api.LOGIN_URL, data);
-      if (response.satus == 'success') {
+      if (response.status == 'success') {
         success(response.message, response.data);
+      } else {
+        failure(response.message);
       }
-      failure(response.message);
     }
   }
 }
