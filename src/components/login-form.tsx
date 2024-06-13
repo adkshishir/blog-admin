@@ -10,10 +10,14 @@ import { Input } from '@/components/ui/input';
 import { Button } from './ui/button';
 import authRepo from '@/repo/auth-repo';
 import { useState } from 'react';
+import { setCookie } from '@/helper/cookiesHander';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 export function LoginForm() {
   let accessToken: string = '';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
   function handleAction(e: any) {
     e.preventDefault();
     authRepo.login(
@@ -26,10 +30,12 @@ export function LoginForm() {
     );
   }
   function success(message: string, data: any) {
-    console.log(data);
+    setCookie('token', data.token);
+    toast.success('Login successfull');
+    router.push('/');
   }
-  function failure(data: any) {
-    console.log(data);
+  function failure(message: string) {
+    toast.error(message);
   }
   return (
     <div className='bg-gray-100 min-h-screen flex items-center justify-center'>
