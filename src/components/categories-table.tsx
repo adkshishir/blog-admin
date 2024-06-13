@@ -27,6 +27,7 @@ export async function CategoriesTable() {
       createdAt: string;
       name: string;
       description: string;
+      slug: string;
     }[]
   } = await request.get(Api.CATEGORIES_URL);
   console.log(data);
@@ -46,6 +47,7 @@ export async function CategoriesTable() {
             <TableHead>Index</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Name</TableHead>
+            <TableHead>Slug</TableHead>
             <TableHead>Description</TableHead>
             <TableHead className='text-right'>Actions</TableHead>
             <TableHead />
@@ -57,6 +59,7 @@ export async function CategoriesTable() {
               <TableCell>{index + 1}</TableCell>
               <TableCell>{category.createdAt.slice(0, 10)}</TableCell>
               <TableCell>{category.name}</TableCell>
+              <TableCell>{category.slug}</TableCell>
               <TableCell>
                 <span className='px-2 py-1 bg-gray-200 rounded-md'>
                   <TagIcon className='w-4 h-4 inline-block mr-1' />
@@ -84,7 +87,6 @@ export async function CategoriesTable() {
                   </PopoverContent>
                 </Popover>
               </TableCell>
-           
             </TableRow>
           ))}
         </TableBody>
