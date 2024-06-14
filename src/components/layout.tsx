@@ -33,12 +33,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }
   return (
     <div className='grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]'>
-      <div className='hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40'>
+      <div className='hidden border-r bg-gray-300/40 lg:block dark:bg-gray-800/40'>
         <div className='flex flex-col gap-2'>
           <div className='flex h-[60px] items-center px-6'>
             <Link className='flex items-center gap-2 font-semibold' href='#'>
               <MountainIcon className='h-6 w-6' />
-              <span className=''>Acme Inc</span>
+              <span className=''>Blog</span>
             </Link>
           </div>
           <div className='flex-1'>
