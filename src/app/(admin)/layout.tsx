@@ -18,15 +18,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const token = await getCookie('token');
-  if (!token) {
-    return <LoginForm />;
-  }
-  return (
-    <html lang='en'>
-      <body className={inter.className}>
-        
-        <Layout>{children}</Layout>
-      </body>
-    </html>
-  );
+
+  return <>{token ? <Layout>{children}</Layout> : <LoginForm />}</>;
 }
