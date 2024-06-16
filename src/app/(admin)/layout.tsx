@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../globals.css';
 import { Layout } from '@/components/layout';
-import { getCookie } from '@/helper/cookiesHander';
+import { getCookie } from '@/helper/cookies-hander';
 import { LoginForm } from '@/components/login-form';
-import { Toaster } from 'react-hot-toast';
+import MyProvider from '@/redux/my-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -18,6 +18,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const token = await getCookie('token');
-
-  return <>{token ? <Layout>{children}</Layout> : <LoginForm />}</>;
+  return (
+    <>
+      {token ? (
+        <MyProvider>
+          <Layout>{children}</Layout>
+        </MyProvider>
+      ) : (
+        <LoginForm />
+      )}
+    </>
+  );
 }
