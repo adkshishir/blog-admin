@@ -5,6 +5,7 @@ class Api {
   public static readonly REGISTER_URL = `${Api.API_URL}/auth/register`;
   public static readonly USERS_URL = `${Api.API_URL}/users`;
   public static readonly CATEGORIES_URL = `${Api.API_URL}/categories`;
+  public static readonly TAGS_URL = `${Api.API_URL}/tags`;
 }
 
-export default Api
+export default Api;
